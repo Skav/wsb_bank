@@ -1,0 +1,16 @@
+
+.sidebar {
+    background-color: #dc3545;
+    min-height: 100vh;
+    color: white;
+}
+.sidebar a {
+    color: white;
+    text-decoration: none;
+}
+.sidebar a:hover {
+    color: #f8f9fa;
+}
+.content {
+    padding: 20px;
+}
