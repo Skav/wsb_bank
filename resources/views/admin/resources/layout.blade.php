@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    @include('resources.head')
+    @include('admin.resources.head')
 </head>
 <body>
 <div class="container-fluid">
     <div class="row">
-        @include('resources.sidebar')
+        @include('admin.resources.sidebar')
 
         <!-- Główna zawartość -->
         <main class="col-md-9 col-lg-10 content">

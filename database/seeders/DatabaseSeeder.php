@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
             'account_id' => '0000000000000000000000000000000000',
             'rank_id' => 1,
             'active' => true,
-            'password' => Hash::make('password'),
+            'password' => Hash::make('test123'),
         ]);
 
         User::factory()->create([
@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
             'account_id' => '0000000000000000000000000000000001',
             'rank_id' => 2,
             'active' => true,
-            'password' => Hash::make('password'),
+            'password' => Hash::make('test123'),
         ]);
 
         User::factory()->create([
@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
             'account_id' => '1000000000000000000000000000000000',
             'rank_id' => 3,
             'active' => true,
-            'password' => Hash::make('password1'),
+            'password' => Hash::make('test123'),
         ]);
 
         User::factory()->create([
@@ -76,7 +76,7 @@ class DatabaseSeeder extends Seeder
             'account_id' => '2000000000000000000000000000000000',
             'rank_id' => 3,
             'active' => false,
-            'password' => Hash::make('password2'),
+            'password' => Hash::make('test123'),
         ]);
     }
 }

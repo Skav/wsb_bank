@@ -1,59 +1,57 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logowanie - Panel Administracyjny</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8d7da;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .login-card {
-            width: 100%;
-            max-width: 400px;
-            padding: 20px;
-            background-color: white;
-            border: 1px solid #dc3545;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .login-card .btn-danger {
-            width: 100%;
-        }
-        .login-card h2 {
-            color: #dc3545;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-    </style>
+    @extends('admin.resources.head')
 </head>
-<body>
-<div class="login-card">
-    <h2>Panel Administracyjny</h2>
-    <form>
-        <div class="mb-3">
-            <label for="username" class="form-label">Nazwa użytkownika</label>
-            <input type="text" id="username" class="form-control" placeholder="Wprowadź nazwę użytkownika" required>
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Hasło</label>
-            <input type="password" id="password" class="form-control" placeholder="Wprowadź hasło" required>
-        </div>
-        <button type="submit" class="btn btn-danger">Zaloguj się</button>
-    </form>
-    <div class="text-center mt-3">
-        <a href="#" class="text-danger">Zapomniałeś hasła?</a>
+<body class="d-flex justify-content-center align-items-center vh-100 bg-light">
+<div class="card shadow-sm border-0" style="max-width: 500px; width: 100%;">
+    <div class="card-body p-4">
+        <h2 class="card-title text-center text-dark mb-4">Logowanie Administratora</h2>
+        <form class="needs-validation" novalidate method="post" action="/admin/login">
+            @csrf
+            <div class="mb-3">
+                <label for="email" class="form-label">Nazwa użytkownika</label>
+                <input type="text" id="email" name="email" class="form-control" placeholder="Wprowadź email" required>
+                <div class="invalid-feedback">To pole jest wymagane.</div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Hasło</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Wprowadź hasło" required>
+                <div class="invalid-feedback">Wprowadź hasło.</div>
+            </div>
+            <button type="submit" class="btn btn-danger w-100">Zaloguj się</button>
+        </form>
+        @if($errors->has('error'))
+            <div class="alert alert-danger text-center">
+                {{ $errors->first('error') }}
+            </div>
+        @endif
     </div>
 </div>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Bootstrap form validation
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
 </body>
 </html>

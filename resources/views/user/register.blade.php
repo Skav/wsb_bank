@@ -71,11 +71,16 @@
                     <label for="confirmPassword" class="form-label">Wybierz płeć</label><br/>
                     <input type="radio" id="gender-male" class="form-radio" placeholder="Meżczyzna" value="male" name="gender" checked>
                     <label for="gender-male" class="form-label">Meżczyzna</label>
-                    <input type="radio" id="gender-female" class="form-radio" placeholder="Kobieta" value="male" name="gender" >
+                    <input type="radio" id="gender-female" class="form-radio" placeholder="Kobieta" value="female" name="gender" >
                     <label for="gender-female" class="form-label">Kobieta</label>
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Zarejestruj się</button>
             </form>
+            @if($errors->has('created'))
+                <div class="alert alert-success text-center">
+                    {{ $errors->first('created') }}
+                </div>
+            @endif
             <div class="text-center mt-3">
                 <p class="mb-0">Masz już konto? <a href="/login" class="text-primary">Zaloguj się</a></p>
             </div>

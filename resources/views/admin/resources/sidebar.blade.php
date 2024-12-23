@@ -22,5 +22,11 @@
                 <i class="bi bi-clock-history"></i> Historia transakcji
             </a>
         </li>
+        <li class="nav-item">
+            <form action="/logout" method="post">
+                @csrf
+                <button class="nav-link text-white" href="/admin/logout">Wyloguj</button>
+            </form>
+        </li>
     </ul>
 </nav>

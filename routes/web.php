@@ -5,7 +5,7 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('user.homepage');
-});
+})->middleware('user');
 
 Route::get('/register', function () {
     return view('user.register');
@@ -13,6 +13,10 @@ Route::get('/register', function () {
 
 Route::get('/login', function () {
     return view('user.login');
+});
+
+Route::get('/profile', function () {
+    return view('user.profile');
 });
 
 Route::post('/register', [AuthController::class, 'register']);

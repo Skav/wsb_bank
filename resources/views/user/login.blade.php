@@ -22,9 +22,9 @@
                         <div class="invalid-feedback">Wprowadź hasło.</div>
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Zaloguj się</button>
-                    @if($errors->any())
+                    @if($errors->has('error'))
                         <div class="alert alert-danger text-center">
-                            Błędny login lub hasło
+                           {{ $errors->first('error') }}
                         </div>
                     @endif
                 </form>
