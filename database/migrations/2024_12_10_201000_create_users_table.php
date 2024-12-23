@@ -19,9 +19,10 @@ return new class extends Migration
             $table->integer('age');
             $table->enum('gender', ['male', 'female'])->default('male');
             $table->string('account_id', 34)->nullable()->unique();
-            $table->foreignId('rank_id');
+            $table->foreignId('rank_id')->default(3);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->boolean('active')->default(false);
             $table->rememberToken();
             $table->timestamps();
 

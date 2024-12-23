@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
             'gender' => 'male',
             'account_id' => '0000000000000000000000000000000000',
             'rank_id' => 1,
+            'active' => true,
             'password' => Hash::make('password'),
         ]);
 
@@ -50,6 +51,7 @@ class DatabaseSeeder extends Seeder
             'gender' => 'male',
             'account_id' => '0000000000000000000000000000000001',
             'rank_id' => 2,
+            'active' => true,
             'password' => Hash::make('password'),
         ]);
 
@@ -61,6 +63,7 @@ class DatabaseSeeder extends Seeder
             'gender' => 'male',
             'account_id' => '1000000000000000000000000000000000',
             'rank_id' => 3,
+            'active' => true,
             'password' => Hash::make('password1'),
         ]);
 
@@ -72,6 +75,7 @@ class DatabaseSeeder extends Seeder
             'gender' => 'female',
             'account_id' => '2000000000000000000000000000000000',
             'rank_id' => 3,
+            'active' => false,
             'password' => Hash::make('password2'),
         ]);
     }

@@ -9,10 +9,10 @@ Route::group([
 //    'middleware' => 'auth',
     ], function () {
         Route::get('/', function() {
-            return view('adminViews.homepage');
+            return view('admin.homepage');
         });
 
         Route::get('/login', function() {
-            return view('adminViews.login');
+            return view('admin.login');
         });
 });

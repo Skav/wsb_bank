@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        <a class="navbar-brand" href="#">Bank Przykład</a>
+        <a class="navbar-brand" href="#">WSB Bank</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -15,12 +15,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#kontakt">Kontakt</a>
                 </li>
+                @auth
                 <li class="nav-item">
-                    <form method="POST" action="/register">
+                    <form action="/logout" method="post">
                         @csrf
-                        <input type="submit" />
+                        <button class="nav-link" href="/logout">Wyloguj</button>
                     </form>
                 </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Zaloguj sie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Stworz konto</a>
+                </li>
+                @endauth
             </ul>
         </div>
     </div>

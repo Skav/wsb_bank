@@ -1,17 +1,18 @@
-@extends('userResources.layout')
+@extends('user.resources.layout')
 
 @section('content')
 
-    <!-- Sekcja powitalna -->
+    @auth
+        <?php// return redirect("/profile") ?>
+    @else
     <header class="bg-light text-center py-5">
         <div class="container">
-            <h1 class="display-4">Witamy w Banku Przykład</h1>
+            <h1 class="display-4">Witamy w Banku WSB</h1>
             <p class="lead">Twoje finanse, Twoje bezpieczeństwo.</p>
             <a href="#uslugi" class="btn btn-primary btn-lg">Dowiedz się więcej</a>
         </div>
     </header>
 
-    <!-- Usługi -->
     <section id="uslugi" class="py-5">
         <div class="container text-center">
             <h2 class="mb-4">Nasze usługi</h2>
@@ -47,7 +48,6 @@
         </div>
     </section>
 
-    <!-- Kontakt -->
     <section id="kontakt" class="bg-light py-5">
         <div class="container text-center">
             <h2 class="mb-4">Skontaktuj się z nami</h2>
@@ -66,5 +66,6 @@
             </form>
         </div>
     </section>
+    @endauth
 
 @endsection
