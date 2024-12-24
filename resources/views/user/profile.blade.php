@@ -19,7 +19,7 @@
                     <div class="card-header">Podsumowanie konta</div>
                     <div class="card-body">
                         <h6>Saldo:</h6>
-                        <p class="text-success fs-4">{{ $cash->amount }} PLN</p>
+                        <p class="text-success fs-4">{{ number_format($cash->amount, 2, '.', '') }} PLN</p>
 
                         <h6>Ostatnie transakcje:</h6>
                         @foreach($transactions as $transaction)
@@ -28,11 +28,11 @@
                                 @if($transaction->receiver_account_number == session()->get('account_number'))
                                     od {{ $transaction->sender_fullname }}
                                     - {{ $transaction->title }}
-                                    - <span class="text-success">{{ $transaction->amount  }} PLN</span>
+                                    - <span class="text-success">{{ number_format($transaction->amount, 2, '.', '')  }} PLN</span>
                                 @else
                                     do {{  $transaction->receiver_fullname }}
                                     - {{ $transaction->title }}
-                                    - <span class="text-danger">{{ $transaction->amount  }} PLN</span>
+                                    - <span class="text-danger">{{ number_format($transaction->amount, 2, '.', '')  }} PLN</span>
                                 @endif
                             </li>
                         </ul>
