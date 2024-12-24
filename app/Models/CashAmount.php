@@ -9,4 +9,13 @@ class CashAmount extends Model
 {
     /** @use HasFactory<\Database\Factories\CashAmountFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'amount',
+        'user_id',
+    ];
+
+    public function user(){
+        return $this->hasOne(User::class);
+    }
 }

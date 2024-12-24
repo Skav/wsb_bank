@@ -24,7 +24,8 @@ class User extends Authenticatable
         'password',
         'age',
         'gender',
-        'rank_id'
+        'rank_id',
+        'phone'
     ];
 
     /**
@@ -48,5 +49,9 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function cashAmount(){
+        return $this->belongsTo(CashAmount::class);
     }
 }

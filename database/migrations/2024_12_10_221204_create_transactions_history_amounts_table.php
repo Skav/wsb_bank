@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('transactions_history_amounts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('sender_fullname');
+            $table->string('receiver_fullname');
             $table->string('sender_account_number');
-            $table->foreignId('receiver_account_number');
+            $table->string('receiver_account_number');
             $table->float('amount');
             $table->timestamps();
         });

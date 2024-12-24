@@ -2,9 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\CashAmount;
 use App\Models\Rank;
+use App\Models\TransactionsHistoryAmount;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Database\Factories\TransactionsHistoryAmountFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -35,9 +38,10 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'surname' => 'Admin',
             'email' => 'admin@admin.com',
+            'phone' => '000000000',
             'age' => 99,
             'gender' => 'male',
-            'account_id' => '0000000000000000000000000000000000',
+            'account_number' => '0000000000000000000000000000000000',
             'rank_id' => 1,
             'active' => true,
             'password' => Hash::make('test123'),
@@ -47,9 +51,10 @@ class DatabaseSeeder extends Seeder
             'name' => 'Jan',
             'surname' => 'Kowalski',
             'email' => 'jan@email.com',
+            'phone' => '111111111',
             'age' => 25,
             'gender' => 'male',
-            'account_id' => '0000000000000000000000000000000001',
+            'account_number' => '0000000000000000000000000000000001',
             'rank_id' => 2,
             'active' => true,
             'password' => Hash::make('test123'),
@@ -59,9 +64,10 @@ class DatabaseSeeder extends Seeder
             'name' => 'Adam',
             'surname' => 'Mickiewicz',
             'email' => 'adam@email.com',
+            'phone' => '555888999',
             'age' => 54,
             'gender' => 'male',
-            'account_id' => '1000000000000000000000000000000000',
+            'account_number' => '1000000000000000000000000000000000',
             'rank_id' => 3,
             'active' => true,
             'password' => Hash::make('test123'),
@@ -71,12 +77,41 @@ class DatabaseSeeder extends Seeder
             'name' => 'Anna',
             'surname' => 'Mickiewicz',
             'email' => 'anna@email.com',
+            'phone' => '666999888',
             'age' => 50,
             'gender' => 'female',
-            'account_id' => '2000000000000000000000000000000000',
+            'account_number' => '2000000000000000000000000000000000',
             'rank_id' => 3,
-            'active' => false,
+            'active' => true,
             'password' => Hash::make('test123'),
+        ]);
+
+        CashAmount::factory()->create([
+            'user_id' => 3,
+            'amount' => 100000,
+        ]);
+
+        CashAmount::factory()->create([
+            'user_id' => 4,
+            'amount' => 100000,
+        ]);
+
+        TransactionsHistoryAmount::factory()->create([
+            'title' => 'Za kawe',
+            'receiver_fullname' => 'Adam Mickiewicz',
+            'sender_fullname' => 'Anna Mickiewicz',
+            'sender_account_number' => '2000000000000000000000000000000000',
+            'receiver_account_number' => '1000000000000000000000000000000000',
+            'amount' => 20,
+        ]);
+
+        TransactionsHistoryAmount::factory()->create([
+            'title' => 'Za wycieczke',
+            'receiver_fullname' => 'Anna Mickiewicz',
+            'sender_fullname' => 'Adam Mickiewicz',
+            'sender_account_number' => '1000000000000000000000000000000000',
+            'receiver_account_number' => '2000000000000000000000000000000000',
+            'amount' => 2000,
         ]);
     }
 }

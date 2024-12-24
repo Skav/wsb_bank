@@ -38,7 +38,17 @@
                     </div>
                 @endif
                 <div class="mb-3">
-                    <label for="email" class="form-label">Wiek</label>
+                    <label for="phone" class="form-label">Telefon</label>
+                    <input type="text" id="phone" name="phone" class="form-control" placeholder="Wprowadź numer telefonu" required>
+                    <div class="invalid-feedback">Wprowadź poprawny numer telefonu.</div>
+                </div>
+                @if($errors->has('phone'))
+                    <div class="alert alert-danger text-center">
+                        {{ $errors->first('phone') }}
+                    </div>
+                @endif
+                <div class="mb-3">
+                    <label for="age" class="form-label">Wiek</label>
                     <input type="number" id="age" name="age" class="form-control" placeholder="Podaj swoj wiek" required>
                     <div class="invalid-feedback">Podaj prawidlowy wiek.</div>
                 </div>

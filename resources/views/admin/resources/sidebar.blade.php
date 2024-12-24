@@ -3,8 +3,8 @@
     <h3 class="text-center mb-4">Admin Panel</h3>
     <ul class="nav flex-column">
         <li class="nav-item mb-3">
-            <a href="#stworzUzytkownika" class="nav-link">
-                <i class="bi bi-person-plus"></i> Stwórz użytkownika
+            <a href="/admin/acceptUser" class="nav-link">
+                <i class="bi bi-person-plus"></i> Zaakceptuj użytkowników
             </a>
         </li>
         <li class="nav-item mb-3">
@@ -23,7 +23,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <form action="/logout" method="post">
+            <form action="/admin/logout" method="post">
                 @csrf
                 <button class="nav-link text-white" href="/admin/logout">Wyloguj</button>
             </form>

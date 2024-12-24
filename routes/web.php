@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\CashAmount;
+use App\Models\TransactionsHistoryAmount;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
@@ -16,8 +18,10 @@ Route::get('/login', function () {
 });
 
 Route::get('/profile', function () {
-    return view('user.profile');
-});
+    $cash = CashAmount::where('user_id', '=', auth()->user()->getOriginal('id'))->first();
+    $transactions = TransactionsHistoryAmount::where('sender_account_number', '=', auth()->user()->getOriginal('account_number'))->orWhere('receiver_account_number', '=', auth()->user()->getOriginal('account_number'))->get();
+    return view('user.profile', ['cash' => $cash, 'transactions' => $transactions]);
+})->middleware('loggedUser');
 
 Route::post('/register', [AuthController::class, 'register']);
 
