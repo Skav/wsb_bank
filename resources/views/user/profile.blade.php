@@ -22,25 +22,27 @@
                         <p class="text-success fs-4">{{ number_format($cash->amount, 2, '.', '') }} PLN</p>
 
                         <h6>Ostatnie transakcje:</h6>
-                        @foreach($transactions as $transaction)
-                            <ul class="list-group">
-                                <li class="list-group-item">Przelew
-                                    @if($transaction->receiver_account_number == session()->get('account_number'))
-                                        od {{ $transaction->sender_fullname }}
-                                        - {{ $transaction->title }}
-                                        - <span class="text-success">{{ number_format($transaction->amount, 2, '.', '')  }} PLN</span>
-                                    @else
-                                        do {{  $transaction->receiver_fullname }}
-                                        - {{ $transaction->title }}
-                                        - <span class="text-danger">{{ number_format($transaction->amount, 2, '.', '')  }} PLN</span>
-                                    @endif
-                                </li>
-                            </ul>
-                        @endforeach
-
-                        @if(count($transactions) >= 10)
-                            <a href="#" class="btn btn-link mt-3">Zobacz więcej</a>
+                        @if(count($transactions) > 0)
+                            @foreach($transactions as $transaction)
+                                <ul class="list-group">
+                                    <li class="list-group-item">Przelew
+                                        @if($transaction->receiver_account_number == session()->get('account_number'))
+                                            od {{ $transaction->sender_fullname }}
+                                            - {{ $transaction->title }}
+                                            - <span class="text-success">{{ number_format($transaction->amount, 2, '.', '')  }} PLN</span>
+                                        @else
+                                            do {{  $transaction->receiver_fullname }}
+                                            - {{ $transaction->title }}
+                                            - <span class="text-danger">{{ number_format($transaction->amount, 2, '.', '')  }} PLN</span>
+                                        @endif
+                                    </li>
+                                </ul>
+                            @endforeach
+                        @else
+                            Nie masz historii tranzakcji!
                         @endif
+
+                        <a href="/showTransactions" class="btn btn-link mt-3">Zobacz więcej</a>
                     </div>
                 </div>
                 <div class="card mt-3">
@@ -56,7 +58,7 @@
                                     </li>
                                 </ul>
                             @endforeach
-                            <a href="#" class="btn btn-link mt-3">Zobacz więcej</a>
+                            <a href="/showTransactions" class="btn btn-link mt-3">Zobacz wszystkie</a>
                         @else
                             Brak oczekujacych tranzakcji
                         @endif

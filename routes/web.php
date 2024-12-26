@@ -38,6 +38,15 @@ Route::get('/sendTransfer', function () {
     return view('user.sendTransfer');
 })->middleware('loggedUser');
 
+Route::get('/showTransactions', function () {
+    $transactions = TransactionsHistoryAmount::where('send', '=', 1)
+        ->where('sender_account_number', '=', auth()->user()->getOriginal('account_number'))
+        ->orWhere('receiver_account_number', '=', auth()->user()->getOriginal('account_number'))
+        ->simplePaginate(10);
+
+    return view('user.showTransactions', ['transactions' => $transactions]);
+})->middleware('loggedUser');
+
 Route::post('/sendTransfer', [TransactionsHistoryAmountController::class, 'sendTransfer'])->middleware('loggedUser');
 
 Route::post('/register', [AuthController::class, 'register']);
