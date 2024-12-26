@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('receiver_fullname');
             $table->string('sender_account_number');
             $table->string('receiver_account_number');
+            $table->boolean('send')->default(false);
             $table->float('amount');
             $table->timestamps();
         });

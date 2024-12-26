@@ -12,6 +12,9 @@
                     <a class="nav-link" href="/profile">Profil</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/sendTransfer">Wyśli przelew</a>
+                </li>
+                <li class="nav-item">
                     <form action="/logout" method="post">
                         @csrf
                         <button class="nav-link" href="/logout">Wyloguj</button>

@@ -15,6 +15,7 @@ class TransactionsHistoryAmount extends Model
         'sender_account_number',
         'receiver_account_number',
         'receiver_fullname',
-        'sender_fullname'
+        'sender_fullname',
+        'title'
     ];
 }

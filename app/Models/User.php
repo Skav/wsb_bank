@@ -25,7 +25,8 @@ class User extends Authenticatable
         'age',
         'gender',
         'rank_id',
-        'phone'
+        'phone',
+        'account_number'
     ];
 
     /**

@@ -103,6 +103,7 @@ class DatabaseSeeder extends Seeder
             'sender_account_number' => '2000000000000000000000000000000000',
             'receiver_account_number' => '1000000000000000000000000000000000',
             'amount' => 20,
+            'send' => true
         ]);
 
         TransactionsHistoryAmount::factory()->create([
@@ -112,6 +113,7 @@ class DatabaseSeeder extends Seeder
             'sender_account_number' => '1000000000000000000000000000000000',
             'receiver_account_number' => '2000000000000000000000000000000000',
             'amount' => 2000,
+            'send' => true
         ]);
     }
 }

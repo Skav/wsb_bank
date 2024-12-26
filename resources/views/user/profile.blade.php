@@ -23,24 +23,44 @@
 
                         <h6>Ostatnie transakcje:</h6>
                         @foreach($transactions as $transaction)
-                        <ul class="list-group">
-                            <li class="list-group-item">Przelew
-                                @if($transaction->receiver_account_number == session()->get('account_number'))
-                                    od {{ $transaction->sender_fullname }}
-                                    - {{ $transaction->title }}
-                                    - <span class="text-success">{{ number_format($transaction->amount, 2, '.', '')  }} PLN</span>
-                                @else
-                                    do {{  $transaction->receiver_fullname }}
-                                    - {{ $transaction->title }}
-                                    - <span class="text-danger">{{ number_format($transaction->amount, 2, '.', '')  }} PLN</span>
-                                @endif
-                            </li>
-                        </ul>
+                            <ul class="list-group">
+                                <li class="list-group-item">Przelew
+                                    @if($transaction->receiver_account_number == session()->get('account_number'))
+                                        od {{ $transaction->sender_fullname }}
+                                        - {{ $transaction->title }}
+                                        - <span class="text-success">{{ number_format($transaction->amount, 2, '.', '')  }} PLN</span>
+                                    @else
+                                        do {{  $transaction->receiver_fullname }}
+                                        - {{ $transaction->title }}
+                                        - <span class="text-danger">{{ number_format($transaction->amount, 2, '.', '')  }} PLN</span>
+                                    @endif
+                                </li>
+                            </ul>
                         @endforeach
 
-                        <a href="#" class="btn btn-link mt-3">Zobacz więcej</a>
+                        @if(count($transactions) >= 10)
+                            <a href="#" class="btn btn-link mt-3">Zobacz więcej</a>
+                        @endif
                     </div>
                 </div>
+                <div class="card mt-3">
+                    <div class="card-header">Oczekujace tranzakcje</div>
+                    <div class="card-body">
+                        @if(count($waiting_transactions) > 0)
+                            @foreach($waiting_transactions as $transaction)
+                                <ul class="list-group">
+                                    <li class="list-group-item">Przelew
+                                            do {{  $transaction->receiver_fullname }}
+                                            - {{ $transaction->title }}
+                                            - <span class="text-danger">{{ number_format($transaction->amount, 2, '.', '')  }} PLN</span>
+                                    </li>
+                                </ul>
+                            @endforeach
+                            <a href="#" class="btn btn-link mt-3">Zobacz więcej</a>
+                        @else
+                            Brak oczekujacych tranzakcji
+                        @endif
+                    </div>
             </div>
         </div>
     </main>
