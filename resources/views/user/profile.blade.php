@@ -10,6 +10,7 @@
                         <img src="https://via.placeholder.com/150" alt="Profil" class="rounded-circle mb-3">
                         <h5 class="card-title">{{  session()->get('name') }} {{ session()->get('surname') }}</h5>
                         <p class="card-text">{{  session()->get('email') }}</p>
+                        <p class="card-text">Nr konta: {{  session()->get('account_number') }}</p>
                         <a href="#" class="btn btn-primary w-100">Edytuj profil</a>
                     </div>
                 </div>

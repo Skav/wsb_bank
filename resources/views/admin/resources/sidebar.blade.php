@@ -1,25 +1,25 @@
 <!-- Sidebar -->
-<nav class="col-md-3 col-lg-2 d-md-block sidebar py-3">
+<nav class="col-md-2 col-lg-2 d-md-block sidebar py-1">
     <h3 class="text-center mb-4">Admin Panel</h3>
     <ul class="nav flex-column">
+        <li class="nav-item mb-3">
+            <a href="/admin/showUsers" class="nav-link">
+                <i class="bi bi-person-plus"></i> Pokaż użytkowników
+            </a>
+        </li>
+        <li class="nav-item mb-3">
+            <a href="/admin/addUser" class="nav-link">
+                <i class="bi bi-person-plus"></i> Dodaj użytkownika
+            </a>
+        </li>
         <li class="nav-item mb-3">
             <a href="/admin/acceptUser" class="nav-link">
                 <i class="bi bi-person-plus"></i> Zaakceptuj użytkowników
             </a>
         </li>
         <li class="nav-item mb-3">
-            <a href="#edytujUzytkownika" class="nav-link">
-                <i class="bi bi-pencil-square"></i> Edytuj użytkownika
-            </a>
-        </li>
-        <li class="nav-item mb-3">
-            <a href="#usunUzytkownika" class="nav-link">
-                <i class="bi bi-person-x"></i> Usuń użytkownika
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="#historiaTranzakcji" class="nav-link">
-                <i class="bi bi-clock-history"></i> Historia transakcji
+            <a href="/admin/transactionHistory" class="nav-link">
+                <i class="bi bi-person-plus"></i> Historia tranzakcji
             </a>
         </li>
         <li class="nav-item">

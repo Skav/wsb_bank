@@ -27,6 +27,11 @@
                            {{ $errors->first('error') }}
                         </div>
                     @endif
+                    @if($errors->has('email'))
+                        <div class="alert alert-danger text-center">
+                            Użytkownik nie istnieje
+                        </div>
+                    @endif
                 </form>
                 <div class="text-center mt-3">
                     <p class="mb-0">Nie masz konta? <a href="register.html" class="text-primary">Zarejestruj się</a></p>

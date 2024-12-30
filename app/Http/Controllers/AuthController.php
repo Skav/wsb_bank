@@ -60,7 +60,6 @@ class AuthController extends Controller
                 }
                 else{
                     $request->session()->flush();
-                    return back()->withErrors(['error' => "Konto nie jest kontem administratorskim"]);
                 }
             }
             catch (\Exception $e) {

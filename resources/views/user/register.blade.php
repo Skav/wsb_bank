@@ -78,12 +78,17 @@
                     </div>
                 @endif
                 <div class="mb-3">
-                    <label for="confirmPassword" class="form-label">Wybierz płeć</label><br/>
+                    <label for="gender" class="form-label">Wybierz płeć</label><br/>
                     <input type="radio" id="gender-male" class="form-radio" placeholder="Meżczyzna" value="male" name="gender" checked>
                     <label for="gender-male" class="form-label">Meżczyzna</label>
                     <input type="radio" id="gender-female" class="form-radio" placeholder="Kobieta" value="female" name="gender" >
                     <label for="gender-female" class="form-label">Kobieta</label>
                 </div>
+                @if($errors->has('gender'))
+                    <div class="alert alert-danger text-center">
+                        {{ $errors->first('gender') }}
+                    </div>
+                @endif
                 <button type="submit" class="btn btn-primary w-100">Zarejestruj się</button>
             </form>
             @if($errors->has('created'))

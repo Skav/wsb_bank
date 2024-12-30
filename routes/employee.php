@@ -5,15 +5,14 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Models\Rank;
-use App\Models\TransactionsHistoryAmount;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
-    'prefix'     => 'admin',
-    'as'         => 'admin.',
-    'middleware' => 'admin',
-    ], function () {
+    'prefix'     => 'employee',
+    'as'         => 'employee.',
+    'middleware' => 'employee',
+], function () {
 
     Route::get('/', function () {
         return view('admin.homepage');
@@ -44,11 +43,6 @@ Route::group([
     Route::get('/addUser', function () {
         $ranks = Rank::all();
         return view('admin.addUser', ['ranks' => $ranks]);
-    });
-
-    Route::get('/transactionHistory', function () {
-        $transactions = TransactionsHistoryAmount::simplePaginate(10);
-        return view('admin.transactionHistory', ['transactions' => $transactions]);
     });
 
     Route::put('/editUser/{user}', [AdminController::class, 'editUser']);

@@ -9,7 +9,7 @@
         @include('admin.resources.sidebar')
 
         <!-- Główna zawartość -->
-        <main class="col-md-9 col-lg-10 content">
+        <main class="col-md-10 col-lg-10 content">
             @yield('content')
         </main>
     </div>
