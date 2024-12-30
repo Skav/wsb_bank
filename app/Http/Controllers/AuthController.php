@@ -58,6 +58,12 @@ class AuthController extends Controller
                 if (session()->get('active') == 1 && session()->get('rank') == '3') {
                     return redirect('/profile');
                 }
+                else if (session()->get('active') == 1 && session()->get('rank') == '2') {
+                    return redirect('/employee');
+                }
+                else if (session()->get('active') == 1 && session()->get('rank') == '1') {
+                    return redirect('/admin');
+                }
                 else{
                     $request->session()->flush();
                 }

@@ -55,4 +55,17 @@ Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::post('/login', [AuthController::class, 'login']);
 
+Route::get('/konta_osobiste', function () {
+    return view('user.konta_osobiste');
+});
+
+Route::get('/kredyty', function () {
+    return view('user.kredyty');
+});
+
+Route::get('/inwestycje', function () {
+    return view('user.inwestycje');
+});
+
 require __DIR__.'/admin.php';
+require __DIR__.'/employee.php';

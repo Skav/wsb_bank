@@ -18,9 +18,13 @@ class LoggedUserMiddleware
         if(auth()->check() && auth()->user()->getOriginal('rank_id') == 3){
             return $next($request);
         }
-        else if(auth()->check() && auth()->user()->getOriginal('rank_id') != 3)
+        else if(auth()->check() && auth()->user()->getOriginal('rank_id') == 1)
         {
             return redirect('/admin');
+        }
+        else if(auth()->check() && auth()->user()->getOriginal('rank_id') == 2)
+        {
+            return redirect('/employee');
         }
 
         return redirect('/');

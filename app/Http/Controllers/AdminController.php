@@ -47,6 +47,7 @@ class AdminController extends Controller
             'phone' => ['required', 'min:9', 'max:9'],
             'age' => ['required', 'numeric', 'min:12'],
             'gender' => ['required', 'in:male,female'],
+            'account_number' => ['required'],
             'rank_id' => ['required', Rule::exists('ranks', 'id')],
         ]);
 

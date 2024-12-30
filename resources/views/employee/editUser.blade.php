@@ -1,4 +1,4 @@
-@extends('admin.resources.layout')
+@extends('employee.resources.layout')
 
 @section('content')
     <div class="container py-5">
@@ -10,7 +10,7 @@
                         {{ $errors->first('info') }}
                     </div>
                 @endif
-                <form class="needs-validation" novalidate method="post" action="/admin/editUser/{{ $user->id }}">
+                <form class="needs-validation" novalidate method="post" action="/employee/editUser/{{ $user->id }}">
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
@@ -96,24 +96,6 @@
                         </div>
                     @endif
                     <div class="mb-3">
-                        <label for="account_number" class="form-label">Podaj numer konta</label>
-                        <input type="tel" id="account_number" name="account_number" class="form-control" placeholder="Wprowadź numer telefonu" required value="{{ $user->phone }}">
-                        <div class="invalid-feedback">Podaj prawidłowy nr konta.</div>
-                    </div>
-                    @if($errors->has('account_number'))
-                        <div class="alert alert-danger text-center">
-                            {{ $errors->first('account_number') }}
-                        </div>
-                    @endif
-                    <div class="mb-3">
-                        <label for="rank_id" class="form-label">Wybierz range</label><br/>
-                        <select class="form-select" name="rank_id">
-                            @foreach($ranks as $rank)
-                                <option value="{{ $rank->id }}" @if($rank->id == $user->rank_id) selected @endif>{{ $rank->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="mb-3">
                         <label for="active" class="form-label">Aktywowac uzytkownika?</label>
                         <input type="checkbox" id="active" name="active" @if($user->active) checked @endif>
                         <div class="invalid-feedback">Podaj prawidłowy numer telefonu.</div>
@@ -121,11 +103,6 @@
                     @if($errors->has('active'))
                         <div class="alert alert-danger text-center">
                             {{ $errors->first('active') }}
-                        </div>
-                    @endif
-                    @if($errors->has('rank_id'))
-                        <div class="alert alert-danger text-center">
-                            {{ $errors->first('rank') }}
                         </div>
                     @endif
                     <button type="submit" class="btn btn-primary w-100">Zapisz zmiany</button>

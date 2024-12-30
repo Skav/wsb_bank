@@ -55,4 +55,8 @@ class User extends Authenticatable
     public function cashAmount(){
         return $this->belongsTo(CashAmount::class);
     }
+
+    public function rank(){
+        return $this->hasMany(Rank::class, 'id', 'rank_id');
+    }
 }

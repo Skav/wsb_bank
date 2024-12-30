@@ -18,9 +18,13 @@ class UserMiddleware
         if(auth()->check() && auth()->user()->getOriginal('rank_id') == 3){
             return redirect('/profile');
         }
-        else if(auth()->check() && auth()->user()->getOriginal('rank_id') != 3)
+        else if(auth()->check() && auth()->user()->getOriginal('rank_id') == 1)
         {
             return redirect('/admin');
+        }
+        else if(auth()->check() && auth()->user()->getOriginal('rank_id') == 2)
+        {
+            return redirect('/employee');
         }
 
         return $next($request);

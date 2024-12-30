@@ -31,7 +31,7 @@ Route::group([
     });
 
     Route::get('/showUsers', function () {
-        $users = User::simplePaginate(10);
+        $users = User::with('rank')->simplePaginate(10);
 
         return view('admin.showUsers', ['users' => $users]);
     });

@@ -22,7 +22,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Konta osobiste</h5>
                             <p class="card-text">Otwórz konto i zarządzaj swoimi finansami w prosty sposób.</p>
-                            <a href="#" class="btn btn-primary">Więcej</a>
+                            <a href="/konta_osobiste" class="btn btn-primary">Więcej</a>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Kredyty</h5>
                             <p class="card-text">Skorzystaj z naszych atrakcyjnych ofert kredytowych.</p>
-                            <a href="#" class="btn btn-primary">Więcej</a>
+                            <a href="/kredyty" class="btn btn-primary">Więcej</a>
                         </div>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Inwestycje</h5>
                             <p class="card-text">Pomnażaj swoje oszczędności dzięki naszym funduszom inwestycyjnym.</p>
-                            <a href="#" class="btn btn-primary">Więcej</a>
+                            <a href="/inwestycje" class="btn btn-primary">Więcej</a>
                         </div>
                     </div>
                 </div>

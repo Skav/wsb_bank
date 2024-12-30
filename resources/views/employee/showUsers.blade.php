@@ -1,4 +1,4 @@
-@extends('admin.resources.layout')
+@extends('employee.resources.layout')
 
 @section('content')
     <div class="container py-5">
@@ -33,24 +33,21 @@
                         <td>{{ $user->created_at }}</td>
                         <td>{{ $user->updated_at }}</td>
                         <td>
-                            <a href="/admin/editUser/{{ $user->id }}" type="submit" class="btn btn-success">Edytuj</a>
-                            @if($user->active)
-                            <form method="post" action="/admin/deactivateUser/{{ $user->id }}">
-                                @csrf
-                                @method('PUT')
-                                <button type="submit" class="btn btn-danger">Deaktywuj</button>
-                            </form>
-                            @else
-                            <form method="post" action="/admin/acceptUser/{{ $user->id }}">
-                                @csrf
-                                @method('POST')
-                                <button type="submit" class="btn btn-info">Aktywuj</button>
-                            </form>
-                            <form method="post" action="/admin/deleteUser/{{ $user->id }}">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Usuń</button>
-                            </form>
+                            @if($user->rank_id != 1)
+                                <a href="/employee/editUser/{{ $user->id }}" type="submit" class="btn btn-success">Edytuj</a>
+                                @if($user->active)
+                                <form method="post" action="/employee/deactivateUser/{{ $user->id }}">
+                                    @csrf
+                                    @method('PUT')
+                                    <button type="submit" class="btn btn-danger">Deaktywuj</button>
+                                </form>
+                                @else
+                                <form method="post" action="/employee/acceptUser/{{ $user->id }}">
+                                    @csrf
+                                    @method('POST')
+                                    <button type="submit" class="btn btn-info">Aktywuj</button>
+                                </form>
+                                @endif
                             @endif
                         </td>
                     </tr>
