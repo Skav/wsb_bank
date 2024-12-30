@@ -5,6 +5,8 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\MessageController;
+use App\Models\Message;
 use App\Models\Rank;
 use App\Models\TransactionsHistoryAmount;
 use App\Models\User;
@@ -48,6 +50,17 @@ Route::group([
         return view('employee.transactionHistory', ['transactions' => $transactions]);
     });
 
+    Route::get('/showMessages', function () {
+        $messages = Message::where('is_read', '=', false)->simplePaginate(10);
+        return view('employee.showMessages', ['messages' => $messages]);
+    });
+
+    Route::get('/showAllMessages', function () {
+        $messages = Message::simplePaginate(10);
+        return view('employee.showAllMessages', ['messages' => $messages]);
+    });
+
+    Route::put('/setMessageAsRead/{message}', [MessageController::class, 'setMessageAsReaded']);
     Route::put('/editUser/{user}', [EmployeeController::class, 'editUser']);
     Route::post('/acceptUser/{user}', [EmployeeController::class, 'acceptUser']);
     Route::post('/activateUser/{user}', [EmployeeController::class, 'acceptUser']);

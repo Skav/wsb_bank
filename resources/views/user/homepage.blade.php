@@ -2,9 +2,6 @@
 
 @section('content')
 
-    @auth
-        <?php// return redirect("/profile") ?>
-    @else
     <header class="bg-light text-center py-5">
         <div class="container">
             <h1 class="display-4">Witamy w Banku WSB</h1>
@@ -52,20 +49,45 @@
         <div class="container text-center">
             <h2 class="mb-4">Skontaktuj się z nami</h2>
             <p class="mb-4">Jesteśmy tutaj, aby Ci pomóc!</p>
-            <form>
+            <form method="post" action="/sendMessage">
+                @csrf
                 <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Twoje imię" required>
+                    <input type="text" class="form-control" name="sender_name" placeholder="Twoje imię" required>
                 </div>
+                @if($errors->has('sender_name'))
+                    <div class="alert alert-danger text-center">
+                        {{ $errors->first('sender_name') }}
+                    </div>
+                @endif
                 <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Twój e-mail" required>
+                    <input type="email" class="form-control" name="sender_email" placeholder="Twój e-mail" required>
                 </div>
+                @if($errors->has('sender_name'))
+                    <div class="alert alert-danger text-center">
+                        {{ $errors->first('sender_name') }}
+                    </div>
+                @endif
                 <div class="mb-3">
-                    <textarea class="form-control" rows="5" placeholder="Twoja wiadomość"></textarea>
+                    <textarea class="form-control" rows="5" name="sender_message" placeholder="Twoja wiadomość"></textarea>
                 </div>
+                @if($errors->has('sender_name'))
+                    <div class="alert alert-danger text-center">
+                        {{ $errors->first('sender_name') }}
+                    </div>
+                @endif
                 <button type="submit" class="btn btn-primary">Wyślij</button>
             </form>
         </div>
+        @if($errors->has('success'))
+            <div class="alert alert-success text-center">
+                {{ $errors->first('success') }}
+            </div>
+        @endif
+        @if($errors->has('error'))
+            <div class="alert alert-danger text-center">
+                {{ $errors->first('error') }}
+            </div>
+        @endif
     </section>
-    @endauth
 
 @endsection

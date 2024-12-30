@@ -22,6 +22,16 @@
                 <i class="bi bi-person-plus"></i> Historia tranzakcji
             </a>
         </li>
+        <li class="nav-item mb-3">
+            <a href="/admin/showMessages" class="nav-link">
+                <i class="bi bi-person-plus"></i> Sprawdz wiadomosci
+            </a>
+        </li>
+        <li class="nav-item mb-3">
+            <a href="/admin/showAllMessages" class="nav-link">
+                <i class="bi bi-person-plus"></i> Sprawdz wszystkie wiadomosci
+            </a>
+        </li>
         <li class="nav-item">
             <form action="/admin/logout" method="post">
                 @csrf

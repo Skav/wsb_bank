@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\TransactionsHistoryAmountController;
 use App\Models\CashAmount;
+use App\Models\Message;
 use App\Models\TransactionsHistoryAmount;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -66,6 +68,8 @@ Route::get('/kredyty', function () {
 Route::get('/inwestycje', function () {
     return view('user.inwestycje');
 });
+
+Route::post('/sendMessage', [MessageController::class, 'sendMessage']);
 
 require __DIR__.'/admin.php';
 require __DIR__.'/employee.php';

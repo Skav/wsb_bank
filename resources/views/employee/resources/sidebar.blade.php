@@ -10,6 +10,16 @@
         <li class="nav-item mb-2">
             <a href="/employee/transactionHistory" class="nav-link text-white">Historia Transakcji</a>
         </li>
+        <li class="nav-item mb-2">
+            <a href="/employee/showMessages" class="nav-link text-white">
+                <i class="bi bi-person-plus"></i> Sprawdz wiadomosci
+            </a>
+        </li>
+        <li class="nav-item mb-2">
+            <a href="/employee/showAllMessages" class="nav-link text-white">
+                <i class="bi bi-person-plus"></i> Sprawdz wszystkie wiadomosci
+            </a>
+        </li>
         <li class="nav-item">
             <form action="/logout" method="post">
                 @csrf

@@ -34,10 +34,10 @@
                     <a class="nav-link" href="/#kontakt">Kontakt</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Zaloguj sie</a>
+                    <a class="nav-link" href="/register">Stworz konto</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/register">Stworz konto</a>
+                    <a class="nav-link" href="/login">Zaloguj sie</a>
                 </li>
                 @endauth
             </ul>
