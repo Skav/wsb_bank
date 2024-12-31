@@ -31,6 +31,24 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Wiadomosci</h5>
+                        <p class="card-text">Sprawdzaj nieprzeczytane wiadomosci.</p>
+                        <a href="/employee/showMessages" class="btn btn-primary">Przejdź</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Historia Wiadomosci</h5>
+                        <p class="card-text">Sprawdzaj wszystkie wiadomosci.</p>
+                        <a href="/employee/showAllMessages" class="btn btn-primary">Przejdź</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -11,6 +11,8 @@
                         <th>Email</th>
                         <th>Wiadomość</th>
                         <th>Status</th>
+                        <th>Data wyslania</th>
+                        <th>Data modyfikacji</th>
                         <th>Akcja</th>
                     </tr>
                     </thead>
@@ -24,9 +26,11 @@
                                 @if($message->is_read)
                                     <span class="text-success">Przeczytana</span>
                                 @else
-                                    <span class="text-success">Oczekujaca</span>
+                                    <span class="text-warning">Oczekujaca</span>
                                 @endif
                             </td>
+                            <td>{{ $message->created_at }}</td>
+                            <td>{{ $message->updated_at }}</td>
                             <td>
                                 @if(!$message->is_read)
                                     <form action="/admin/setMessageAsRead/{{$message->id}}" method="post">
@@ -41,7 +45,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <span class="text-center">
-                                            <button class="btn btn-danger btn-sm">Usuń</button>
+                                            <button class="btn btn-danger btn-sm">Usuń wiadomosc</button>
                                         </span>
                                     </form>
 
@@ -51,6 +55,7 @@
                     @endforeach
                     </tbody>
                 </table>
+                {{ $messages->links() }}
             </div>
             @if($errors->has('success'))
                 <div class="alert alert-success text-center">

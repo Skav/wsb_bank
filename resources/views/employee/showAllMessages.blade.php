@@ -11,6 +11,8 @@
                         <th>Email</th>
                         <th>Wiadomość</th>
                         <th>Status</th>
+                        <th>Data utworzenia</th>
+                        <th>Data modyfikacji</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -23,13 +25,16 @@
                                 @if($message->is_read)
                                     <span class="text-success">Przeczytana</span>
                                 @else
-                                    <span class="text-success">Oczekujaca</span>
+                                    <span class="text-warning">Oczekujaca</span>
                                 @endif
                             </td>
+                            <td>{{ $message->created_at }}</td>
+                            <td>{{ $message->updated_at }}</td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
+                {{ $messages->links() }}
             </div>
             @if($errors->has('success'))
                 <div class="alert alert-success text-center">

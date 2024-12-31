@@ -10,6 +10,7 @@
                         <th>Imię</th>
                         <th>Email</th>
                         <th>Wiadomość</th>
+                        <th>Data wysłania</th>
                         <th>Akcja</th>
                     </tr>
                     </thead>
@@ -19,6 +20,7 @@
                             <td>{{ $message->sender_name }}</td>
                             <td>{{ $message->sender_email }}</td>
                             <td>{{ $message->sender_message }}</td>
+                            <td>{{ $message->created_at }}</td>
                             <form action="/employee/setMessageAsRead/{{$message->id}}" method="post">
                                 @csrf
                                 @method('PUT')
@@ -30,6 +32,7 @@
                     @endforeach
                     </tbody>
                 </table>
+                {{ $messages->links() }}
             </div>
             @if($errors->has('success'))
                 <div class="alert alert-success text-center">

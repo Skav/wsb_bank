@@ -1,6 +1,6 @@
 <!-- Sidebar -->
 <nav class="col-md-2 col-lg-2 d-md-block sidebar py-1">
-    <h3 class="text-center mb-4">Admin Panel</h3>
+    <a class="nav-item" href="/admin"><h3 class="text-center mb-4">Admin Panel</h3></a>
     <ul class="nav flex-column">
         <li class="nav-item mb-3">
             <a href="/admin/showUsers" class="nav-link">

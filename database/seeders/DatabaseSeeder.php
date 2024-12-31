@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\CashAmount;
+use App\Models\Message;
 use App\Models\Rank;
 use App\Models\TransactionsHistoryAmount;
 use App\Models\User;
@@ -114,6 +115,34 @@ class DatabaseSeeder extends Seeder
             'receiver_account_number' => '2000000000000000000000000000000000',
             'amount' => 2000,
             'send' => true
+        ]);
+
+        Message::factory()->create([
+            'sender_name' => "Jan kowalski",
+            'sender_email' => 'jan2@email.com',
+            'sender_message' => "test wiadomosci hehe",
+            'is_read' => true
+        ]);
+
+        Message::factory()->create([
+            'sender_name' => "Jan Nowak",
+            'sender_email' => 'janNowak@email.com',
+            'sender_message' => "Jakaś bardzo mądra wiadomość",
+            'is_read' => false
+        ]);
+
+        Message::factory()->create([
+            'sender_name' => "Adam kowalski",
+            'sender_email' => 'AdamK@email.com',
+            'sender_message' => "Jestem Adam Kowalski",
+            'is_read' => true
+        ]);
+
+        Message::factory()->create([
+            'sender_name' => "Adam Kowalski",
+            'sender_email' => 'AdamK@email.com',
+            'sender_message' => "To znowu ja!",
+            'is_read' => false
         ]);
     }
 }
